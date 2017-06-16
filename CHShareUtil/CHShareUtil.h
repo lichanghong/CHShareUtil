@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+
+
+
 //! Project version number for CHShareUtil.
 FOUNDATION_EXPORT double CHShareUtilVersionNumber;
 
@@ -19,3 +22,20 @@ FOUNDATION_EXPORT const unsigned char CHShareUtilVersionString[];
 //    APP ID 1106225034APP KEY oN9Tf5tCx8SjhtYh
 
 #import "CHQQShare.h"
+
+
+
+//分享到Qzone：
+/*
+ mqqopensdkapiV4
+ 
+ 
+ */
+//分享到qq
+/*
+	<string>mqq</string>
+	<string>tim</string>
+	<string>mqqopensdkapiv2</string>
+	<string>mqqapi</string>
+ 
+ */

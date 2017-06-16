@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "CHShareUtil"
-  s.version      = "0.0.1"
+  s.version      = "0.0.3"
   s.summary      = "封装QQ分享到cocoaPod，无需复杂配置即可方便的调用，基于：qq V3.2.1"
 
   # This description is used to generate tags and improve search results.
@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
-  	封装QQ分享到cocoaPod，无需复杂配置即可方便的调用，基于：qq V3.2.1 后期会集成微信等分享功能
+  	                   封装QQ分享到cocoaPod，无需复杂配置即可方便的调用，基于：qq V3.2.1 后期会集成微信等分享功能
                    DESC
 
   s.homepage     = "https://github.com/lichanghong/CHShareUtil"
@@ -65,7 +65,7 @@ Pod::Spec.new do |s|
   #
 
   # s.platform     = :ios
-  # s.platform     = :ios, "5.0"
+  s.platform     = :ios, "8.0"
 
   #  When using multiple platforms
   # s.ios.deployment_target = "5.0"
@@ -91,10 +91,10 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "CHShareUtil", "CHShareUtil/*.{h,m}"
-  s.exclude_files = "Classes/Exclude"
+  s.source_files  = "CHShareUtil", "CHShareUtil/**/*.{h,m}"
+  #s.exclude_files = "Classes/Exclude"
 
-  # s.public_header_files = "Classes/**/*.h"
+  s.public_header_files = "CHShareUtil/CHQQShare.h"
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -105,8 +105,8 @@ Pod::Spec.new do |s|
   #  non-essential files like tests, examples and documentation.
   #
 
-  # s.resource  = "icon.png"
-  # s.resources = "Resources/*.png"
+   s.resource  = "CHShareUtil/TencentOpenApi_IOS_Bundle.bundle"
+   #s.resources = "CHShareUtil/*.framework","TencentOpenApi_IOS_Bundle.bundle"
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
@@ -117,11 +117,8 @@ Pod::Spec.new do |s|
   #  the lib prefix of their name.
   #
 
-  # s.framework  = "SomeFramework"
-  # s.frameworks = "SomeFramework", "AnotherFramework"
 
-  # s.library   = "iconv"
-  # s.libraries = "iconv", "xml2"
+
 
 
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -129,9 +126,12 @@ Pod::Spec.new do |s|
   #  If your library depends on compiler flags you can set them in the xcconfig hash
   #  where they will only apply to your library. If you depend on other Podspecs
   #  you can include multiple dependencies to ensure it works.
-
-  # s.requires_arc = true
-
+s.requires_arc = true
+s.pod_target_xcconfig = { 'ENABLE_BITCODE' => 'NO' }
+s.frameworks   = 'Security','SystemConfiguration','CoreGraphics','CoreTelephony',   'UIKit', 'Foundation'
+s.libraries = 'iconv','sqlite3','stdc++','z'
+s.ios.vendored_frameworks = 'CHShareUtil/TencentOpenAPI.framework'
+ 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"
 
