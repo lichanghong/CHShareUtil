@@ -48,10 +48,6 @@ typedef enum
  */
 + (SendResultCode)shareWithImageData:(NSData *)data ;
 
-/**
- @code 分享新闻链接消息（网络图片缩略图）
- */
-+ (SendResultCode)sendNewsMessageWithNetworkImage:(NSString *)imageUrl;
 
 /**
  @param URLStr  发送之后的预览图
